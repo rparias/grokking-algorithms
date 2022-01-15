@@ -1,5 +1,5 @@
 const binarySearch = () => {
-  return 1
+  return null
 }
 
 module.exports = binarySearch
