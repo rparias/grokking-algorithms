@@ -16,4 +16,17 @@ const countItems = (list) => {
   }
 }
 
-module.exports = { recursiveSum, countItems }
+const maximumInAList = (list, maximum = 0) => {
+  if (!list.length) return null
+
+  if (list.length === 1) return maximum || list[0]
+
+  const [current, ...rest] = list
+  if (current > maximum) {
+    return maximumInAList(rest, current)
+  } else {
+    return maximumInAList(rest, maximum)
+  }
+}
+
+module.exports = { recursiveSum, countItems, maximumInAList }

@@ -1,4 +1,4 @@
-const { recursiveSum, countItems } = require('../recursion')
+const { recursiveSum, countItems, maximumInAList } = require('../recursion')
 
 describe('Recursion', () => {
   describe('sum of Array', () => {
@@ -27,6 +27,21 @@ describe('Recursion', () => {
     it('should return the number of items in a list using recursion', () => {
       const list = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
       expect(countItems(list)).toBe(11)
+    })
+  })
+
+  describe('maximum number in a list', () => {
+    it('should return undefined when the list is empty', () => {
+      expect(maximumInAList([])).toBe(null)
+    })
+
+    it('should return the maximum from a list using recursion', () => {
+      const list = [2, 5, 1, 6, 30, 27, 11, 0, 31, 29, 4]
+      expect(maximumInAList(list)).toBe(31)
+    })
+
+    it('should return the same number when the list has only one element', () => {
+      expect(maximumInAList([2])).toBe(2)
     })
   })
 })
