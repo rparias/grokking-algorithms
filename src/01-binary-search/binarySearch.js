@@ -1,23 +1,23 @@
-const binarySearch = (list, element) => {
-  let low = 0
-  let high = list.length - 1
-
-  while (low <= high) {
-    let middle = getMiddle(low, high)
-    const guess = list[middle]
-
-    if (guess === element) {
-      return true
-    }
-
-    if (guess > element) {
-      high = middle - 1
-    } else {
-      low = middle + 1
-    }
+const binarySearch = (list, element, low = 0, high) => {
+  if (high === null || high === undefined) {
+    high = list.length - 1
   }
 
-  return false
+  if (low > high) return false
+
+  let middle = getMiddle(low, high)
+  const guess = list[middle]
+
+  if (guess === element) {
+    return true
+  }
+
+  if (guess > element) {
+    high = middle - 1
+  } else {
+    low = middle + 1
+  }
+  return binarySearch(list, element, low, high)
 }
 
 const getMiddle = (low, high) => {
